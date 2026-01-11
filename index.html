@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BooseApp_Level6Sem1 - Complete Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.4rem;
+        }
+
+        h4 {
+            color: #7f8c8d;
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .namespace {
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .namespace h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .type {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .type-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .type-name {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .type-kind {
+            background-color: #3498db;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .summary {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 3px solid #95a5a6;
+        }
+
+        .remarks {
+            background-color: #fff8e1;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 3px solid #f39c12;
+        }
+
+        .members {
+            margin-top: 1.5rem;
+        }
+
+        .member {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .member-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .member-name {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 1.1rem;
+            color: #2980b9;
+        }
+
+        .member-type {
+            background-color: #95a5a6;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .parameters {
+            margin: 0.8rem 0;
+        }
+
+        .parameter {
+            display: flex;
+            margin: 0.3rem 0;
+        }
+
+        .param-name {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #e74c3c;
+            min-width: 120px;
+        }
+
+        .param-desc {
+            color: #555;
+        }
+
+        .exception {
+            color: #c0392b;
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .returns {
+            margin: 0.8rem 0;
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        .field, .property {
+            background-color: #f0f7ff;
+            border-left: 3px solid #3498db;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+        }
+
+        .method {
+            background-color: #f0fff4;
+            border-left: 3px solid #27ae60;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+        }
+
+        .constructor {
+            background-color: #fff8e1;
+            border-left: 3px solid #f39c12;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background-color: #f1f1f1;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            color: #c0392b;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .type-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .type-kind {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BooseApp_Level6Sem1</h1>
+        <p class="subtitle">BOOSE Drawing Application - Level 6 Semester 1</p>
+        <p>Complete documentation for all BOOSE application classes and components</p>
+    </header>
+
+    <section id="overview">
+        <h2>Overview</h2>
+        <p>The BooseApp_Level6Sem1 is a Windows Forms application that implements the BOOSE (Basic Object-Oriented Scripting Environment) programming language with graphical drawing capabilities. This documentation covers all classes, methods, properties, and exceptions in the application.</p>
+    </section>
+
+    <section id="namespaces">
+        <h2>Namespaces</h2>
+        
+        <div class="namespace">
+            <h3>BooseApp_Level6Sem1</h3>
+            <p>The root namespace containing all application-specific classes and components for the BOOSE drawing application.</p>
+        </div>
+    </section>
+
+    <section id="classes">
+        <h2>Classes and Types</h2>
+
+        <!-- Form1 -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">Form1</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents the main form of the BOOSE drawing application. This form provides the user interface for entering BOOSE commands, displaying graphical output, and showing error messages.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">components</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Container for managing all components used by the form.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">RunButton</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Button that executes the BOOSE program.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">OutputWindow</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        PictureBox used to render graphical drawing output.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">ProgramWindow</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        TextBox for entering BOOSE commands.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">ClearButton</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Button used to clear the input and output areas.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">txtErrorOutput</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        TextBox used to display error messages.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Dispose(Boolean)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Releases all resources used by the form.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">disposing</div>
+                            <div class="param-desc">Indicates whether managed resources should be disposed.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">InitializeComponent()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Initializes and configures all user interface components used in the form. This method is automatically generated by the Windows Forms designer.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppArray -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppArray</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a class intended to handle array-related functionality for the BOOSE application.
+            </div>
+            <div class="remarks">
+                This class currently acts as a placeholder and is designed for future expansion where array storage and manipulation logic will be implemented.
+            </div>
+            
+            <div class="members">
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppArray()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppArray</code> class.
+                    </div>
+                    <div class="remarks">
+                        No functionality is implemented at this stage. This constructor exists to support future development.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppBoolean -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppBoolean</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a boolean variable within the BOOSE programming language. This class supports declaring, compiling, and executing boolean values such as true and false.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">boolValue</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Stores the actual boolean value represented by this variable.
+                    </div>
+                </div>
+                
+                <h4>Properties</h4>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">BoolValue</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets or sets the boolean value associated with this variable.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppBoolean()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppBoolean</code> class. This constructor is called when a boolean variable is first created.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Compile()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Compiles the boolean variable and registers it with the current BOOSE program.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the boolean evaluation and assigns a value based on the evaluated expression.
+                    </div>
+                    <div class="exception">
+                        Thrown when the evaluated expression is not a valid boolean value (true or false).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppCall -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppCall</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a call command in the BOOSE language that invokes a method with parameters.
+            </div>
+            <div class="remarks">
+                Syntax: <code>call methodName param1 param2 ...</code>
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">methodName</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Stores the name of the method to be invoked.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppCall()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppCall</code> class.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Compile()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Compiles the call command by extracting the method name and rebuilding the parameter list.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the method call by assigning parameter values to local variables and transferring program control to the method body.
+                    </div>
+                    <div class="exception">
+                        Thrown when the number of parameters does not match the method definition or when a parameter value is invalid.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppCanvas -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppCanvas</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a drawable canvas that supports shapes, lines, text, and colour operations for the BOOSE programming language.
+            </div>
+            <div class="remarks">
+                This class provides a concrete implementation of the <code>ICanvas</code> interface.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">CanvasBitmap</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Bitmap used as the drawing surface for the canvas.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">g</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Graphics object used to perform drawing operations on the bitmap.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">xPos</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Current X coordinate of the drawing cursor.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">yPos</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Current Y coordinate of the drawing cursor.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">Pen</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Pen used to draw outlines and lines on the canvas.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">penColour</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Current colour of the drawing pen.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">penSize</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Width of the pen stroke.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">XSIZE</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Default canvas width.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">YSIZE</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Default canvas height.
+                    </div>
+                </div>
+                
+                <h4>Properties</h4>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">Xpos</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets or sets the current X coordinate of the drawing cursor.
+                    </div>
+                </div>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">Ypos</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets or sets the current Y coordinate of the drawing cursor.
+                    </div>
+                </div>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">PenColour</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets or sets the current pen colour.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppCanvas()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppCanvas</code> class. Creates a default bitmap and graphics context.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Circle(Int32, Boolean)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Draws a circle at the current cursor position.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">radius</div>
+                            <div class="param-desc">Radius of the circle.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">filled</div>
+                            <div class="param-desc">Indicates whether the circle is filled.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when the radius is zero or negative.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Clear()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Clears the canvas and fills it with a gray background.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">DrawTo(Int32, Int32)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Draws a line from the current position to the specified coordinates.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">x</div>
+                            <div class="param-desc">Destination X coordinate.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">y</div>
+                            <div class="param-desc">Destination Y coordinate.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when the coordinates are outside the canvas bounds.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">getBitmap()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Returns the bitmap associated with this canvas.
+                    </div>
+                    <div class="returns">
+                        Returns: The internal canvas bitmap.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">MoveTo(Int32, Int32)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Moves the drawing cursor without drawing.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">x</div>
+                            <div class="param-desc">New X coordinate.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">y</div>
+                            <div class="param-desc">New Y coordinate.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when the coordinates are outside the canvas bounds.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Rect(Int32, Int32, Boolean)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Draws a rectangle at the current cursor position.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">width</div>
+                            <div class="param-desc">Rectangle width.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">height</div>
+                            <div class="param-desc">Rectangle height.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">filled</div>
+                            <div class="param-desc">Indicates whether the rectangle is filled.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when width or height is zero or negative.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Reset()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Resets the drawing cursor to the origin (0,0).
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Set(Int32, Int32)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Resizes the canvas to the specified dimensions.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">width</div>
+                            <div class="param-desc">New canvas width.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">height</div>
+                            <div class="param-desc">New canvas height.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when width or height is zero or negative.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">SetColour(Int32, Int32, Int32)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Sets the pen colour using RGB values.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">red</div>
+                            <div class="param-desc">Red component (0–255).</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">green</div>
+                            <div class="param-desc">Green component (0–255).</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">blue</div>
+                            <div class="param-desc">Blue component (0–255).</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when any colour value is outside the valid range.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Tri(Int32, Int32)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Draws a triangle originating from the current cursor position.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">width</div>
+                            <div class="param-desc">Base width of the triangle.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">height</div>
+                            <div class="param-desc">Height of the triangle.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when width or height is zero or negative.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">WriteText(String)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Writes text at the current cursor position.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">text</div>
+                            <div class="param-desc">Text to be drawn.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when the text is null or empty.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppCanvasException -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppCanvasException</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents an application-specific exception related to canvas operations in the BOOSE application.
+            </div>
+            <div class="remarks">
+                This exception extends <code>CanvasException</code> and allows canvas-related errors to be handled at the application level.
+            </div>
+            
+            <div class="members">
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppCanvasException(String)</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppCanvasException</code> class with a specified error message.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">msg</div>
+                            <div class="param-desc">The message that describes the error.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppCircle -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppCircle</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a command that draws a circle on the canvas.
+            </div>
+            <div class="remarks">
+                This command accepts exactly one integer parameter representing the radius of the circle.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">radius</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Stores the validated radius value for the circle.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppCircle()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppCircle</code> class.
+                    </div>
+                </div>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppCircle(Canvas, Int32)</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppCircle</code> class bound to a specific canvas.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">c</div>
+                            <div class="param-desc">The canvas on which the circle will be drawn.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">radius</div>
+                            <div class="param-desc">The radius of the circle.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the circle drawing command using the validated radius.
+                    </div>
+                    <div class="exception">
+                        Thrown when a double parameter is supplied or when the radius is less than one.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">CheckParameters(String[])</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Validates the parameters supplied to the circle command.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">parameterList</div>
+                            <div class="param-desc">Array containing the command parameters as strings.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when an incorrect number of parameters is supplied.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppCommandFactory -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppCommandFactory</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Factory class responsible for creating application-specific BOOSE command instances.
+            </div>
+            <div class="remarks">
+                This class extends <code>CommandFactory</code> and provides support for custom commands such as drawing, movement, control flow, and variable handling.
+            </div>
+            
+            <div class="members">
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppCommandFactory()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppCommandFactory</code> class.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">MakeCommand(String)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Creates a command instance based on the specified command keyword.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">commandType</div>
+                            <div class="param-desc">The textual representation of the command to create.</div>
+                        </div>
+                    </div>
+                    <div class="returns">
+                        Returns: An object implementing <code>ICommand</code> corresponding to the requested command.
+                    </div>
+                    <div class="exception">
+                        Thrown when the command type is not recognised by either the application factory or the base factory.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppDrawTo -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppDrawTo</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a drawing command that draws a line from the current pen position to the specified (x, y) coordinates.
+            </div>
+            <div class="remarks">
+                This class extends the BOOSE <code>DrawTo</code> command and provides compatibility with the application-specific <code>AppCanvas</code> implementation.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">x</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Target X coordinate for the draw operation.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">y</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Target Y coordinate for the draw operation.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppDrawTo()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppDrawTo</code> class.
+                    </div>
+                </div>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppDrawTo(Canvas, Int32, Int32)</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppDrawTo</code> class with a specific canvas and target coordinates.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">c</div>
+                            <div class="param-desc">The canvas on which the command will be executed.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">x</div>
+                            <div class="param-desc">The X coordinate to draw to.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">y</div>
+                            <div class="param-desc">The Y coordinate to draw to.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the draw command by drawing a line from the current pen position to the target coordinates.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppElse -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppElse</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents the <code>else</code> command used in conditional control flow.
+            </div>
+            <div class="remarks">
+                This command works in conjunction with <code>if</code> and <code>end</code> commands to control execution flow when a condition evaluates to false.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">correspondingEnd</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Stores the corresponding <code>AppEnd</code> command associated with this <code>else</code> block.
+                    </div>
+                </div>
+                
+                <h4>Properties</h4>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">CorrespondingEnd</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets or sets the <code>AppEnd</code> command that marks the end of this <code>else</code> block.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppElse()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppElse</code> class.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">CheckParameters(String[])</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Validates the parameters supplied to the <code>else</code> command.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">parameter</div>
+                            <div class="param-desc">Array of parameters passed to the command.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when parameters are supplied, as the <code>else</code> command does not accept any parameters.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Compile()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Compiles the <code>else</code> command by linking it to the corresponding conditional command and setting execution boundaries.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the <code>else</code> command by redirecting program flow when the associated condition evaluates to true.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppEnd -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppEnd</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents an <code>end</code> command that closes conditional, loop, and method blocks.
+            </div>
+            <div class="remarks">
+                This command handles proper execution flow for <code>if</code>/<code>else</code>, <code>while</code>, <code>for</code>, and <code>method</code> blocks by linking to the corresponding opening command and managing program counter updates.
+            </div>
+            
+            <div class="members">
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppEnd()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppEnd</code> class.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Compile()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Compiles the <code>end</code> command by linking it to its corresponding opening command. Validates that the correct type of <code>end</code> matches the opening command.
+                    </div>
+                    <div class="exception">
+                        Thrown when the <code>end</code> command does not match the expected opening block type (if, while, for, method).
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the <code>end</code> command, handling different behaviors for loops, conditionals, and methods.
+                    </div>
+                    <div class="remarks">
+                        For <code>while</code> loops, it jumps back to the loop condition. For <code>for</code> loops, it updates the loop control variable and determines if the loop should continue. For methods, it returns to the line after the method call.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppFor -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppFor</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a for loop command that iterates over a range of values. Syntax: for variable = start to end step increment
+            </div>
+            <div class="remarks">
+                The <code>AppFor</code> command initializes a loop variable, evaluates the start, end, and step expressions, and manages loop execution through its control variable.
+            </div>
+            
+            <div class="members">
+                <h4>Properties</h4>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">LoopControlV</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets the loop control variable used to track the current iteration value.
+                    </div>
+                </div>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">From</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets or sets the starting value of the loop.
+                    </div>
+                </div>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">To</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets or sets the ending value of the loop.
+                    </div>
+                </div>
+                
+                <div class="member property">
+                    <div class="member-header">
+                        <div class="member-name">Step</div>
+                        <div class="member-type">Property</div>
+                    </div>
+                    <div class="summary">
+                        Gets or sets the step increment for each iteration.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppFor()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppFor</code> class.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Compile()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Compiles the for loop by parsing the loop variable, range, and step values. Initializes or finds the loop control variable in the program.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the for loop initialization by evaluating the start, end, and step values. Sets the loop control variable to the starting value.
+                    </div>
+                    <div class="exception">
+                        Thrown when the step value cannot be parsed into an integer.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppIf -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppIf</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents an "if" conditional command in the BOOSE language. Evaluates a condition and executes the corresponding block if true.
+            </div>
+            <div class="remarks">
+                This command is a container for conditional logic and may be linked with <code>AppElse</code> and <code>AppEnd</code>.
+            </div>
+            
+            <div class="members">
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppIf()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppIf</code> class.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppInt -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppInt</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents an integer variable in the BOOSE programming language. Handles declaration, assignment, and evaluation of integer values.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">intValue</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Stores the integer value of this variable.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppInt()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppInt</code> class.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Compile()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Compiles the integer variable by adding it to the program's variable list.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the integer assignment by evaluating the expression and updating the program's variable value.
+                    </div>
+                    <div class="exception">
+                        Thrown when the evaluated expression cannot be parsed into an integer.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppMethod -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppMethod</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a method declaration in the BOOSE programming language. Handles local variables, return variable creation, and method compilation.
+            </div>
+            
+            <div class="members">
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppMethod()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppMethod</code> class. Resets any static restriction counters in the base <code>Method</code> class.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Compile()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Compiles the method by creating a return variable and all local variables for the method.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">CreateVariableByType(String)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Creates a variable of the appropriate type based on the provided type string.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">type</div>
+                            <div class="param-desc">The type of variable to create, e.g., "int".</div>
+                        </div>
+                    </div>
+                    <div class="returns">
+                        Returns: An <code>Evaluation</code> instance of the specified type.
+                    </div>
+                    <div class="exception">
+                        Thrown when the type is unsupported.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppMoveTo -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppMoveTo</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a command that moves the pen to the specified (x, y) coordinates without drawing a line.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">xPos</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        The target X coordinate for the pen.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">yPos</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        The target Y coordinate for the pen.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppMoveTo()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppMoveTo</code> class.
+                    </div>
+                </div>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppMoveTo(Canvas, Int32, Int32)</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppMoveTo</code> class with the specified canvas and target coordinates.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">c</div>
+                            <div class="param-desc">The canvas on which the command will execute.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">x</div>
+                            <div class="param-desc">The target X position.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">y</div>
+                            <div class="param-desc">The target Y position.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the move command, updating the pen position on the canvas without drawing.
+                    </div>
+                    <div class="exception">
+                        Thrown if the target coordinates exceed 2000.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">CheckParameters(String[])</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Checks that the provided parameters for the move command are valid.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">parameterList</div>
+                            <div class="param-desc">An array of string parameters to validate.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when the number of parameters is not exactly two.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppParser -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppParser</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Parser class for analyzing and converting BOOSE program text into executable commands. Handles variable declarations, assignments, control structures (if, while, for), arrays, methods, and drawing commands. Implements the <code>IParser</code> interface from the BOOSE library.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">commandFactory</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        The command factory used to create command instances.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">StoredProgram</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        The stored program that will hold the parsed commands.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppParser(AppCommandFactory, StoredProgram)</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppParser</code> class.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">commandFactory</div>
+                            <div class="param-desc">The factory used to create command instances.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">Program</div>
+                            <div class="param-desc">The stored program that will hold the parsed commands.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Normalize(String)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Normalizes a line of BOOSE code by trimming whitespace and adding spacing around operators. This ensures consistent parsing of expressions and commands.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">Line</div>
+                            <div class="param-desc">The line of code to normalize.</div>
+                        </div>
+                    </div>
+                    <div class="returns">
+                        Returns: The normalized line with consistent spacing around operators.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">ParseCommand(String)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Parses a single line of BOOSE code and converts it into a command object. Handles comments (lines starting with *), variable declarations, assignments, control structures, arrays, and methods. Special handling for 'for' loops to preserve negative step values.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">Line</div>
+                            <div class="param-desc">The line of code to parse.</div>
+                        </div>
+                    </div>
+                    <div class="returns">
+                        Returns: The parsed command object, or null if the line is empty or a comment.
+                    </div>
+                    <div class="exception">
+                        Thrown when syntax errors are detected, invalid types are specified, or undefined variables are used.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">ParseProgram(String)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Parses an entire BOOSE program by splitting it into lines and parsing each line individually. Empty lines and whitespace-only lines are skipped.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">program</div>
+                            <div class="param-desc">The complete program text to parse, with commands separated by newlines.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppPen -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppPen</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents the Pen command, which sets the drawing colour using RGB values.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">r</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Red component of the pen colour.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">g</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Green component of the pen colour.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">b</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Blue component of the pen colour.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppPen()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppPen</code> class.
+                    </div>
+                </div>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppPen(Canvas)</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppPen</code> class with a canvas reference.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">canvas</div>
+                            <div class="param-desc">The canvas object to apply the pen settings to.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">CheckParameters(String[])</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Validates and extracts RGB parameters for the Pen command.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">parameterList</div>
+                            <div class="param-desc">The list of parameters supplied to the command.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when parameters are missing, non-integer, or out of the valid range (0–255).
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the Pen command, setting the canvas drawing colour.
+                    </div>
+                    <div class="exception">
+                        Thrown when execution fails or the canvas is unavailable.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppRectangle -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppRectangle</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a command that draws a rectangle on the canvas. Supports both filled and unfilled rectangles based on parameters.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">width</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Width of the rectangle.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">height</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        Height of the rectangle.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppRectangle()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppRectangle</code> class.
+                    </div>
+                </div>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppRectangle(Canvas, Int32, Int32)</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppRectangle</code> class with the specified dimensions and canvas.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">c</div>
+                            <div class="param-desc">The canvas on which the rectangle will be drawn.</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">width</div>
+                            <div class="param-desc">The width of the rectangle (must be > 0).</div>
+                        </div>
+                        <div class="parameter">
+                            <div class="param-name">height</div>
+                            <div class="param-desc">The height of the rectangle (must be > 0).</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the rectangle drawing command on the provided canvas.
+                    </div>
+                    <div class="exception">
+                        Thrown when the canvas is unavailable or an error occurs during drawing.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">CheckParameters(String[])</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Validates the parameters supplied to the rectangle command.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">parameterList</div>
+                            <div class="param-desc">The array of string parameters supplied to the command.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown when the number of parameters is not exactly 2.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppWhile -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppWhile</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a "while" loop command in a BOOSE program. Inherits from <code>CompoundCommand</code> and is used to execute a block of commands repeatedly while a specified condition evaluates to true.
+            </div>
+            
+            <div class="members">
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppWhile()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppWhile</code> class.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AppWrite -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">AppWrite</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Represents a command that writes text to the canvas. Inherits from <code>CommandOneParameter</code> and supports both literal text and evaluated expressions.
+            </div>
+            
+            <div class="members">
+                <h4>Fields</h4>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">textToWrite</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        The original text parameter supplied to the command.
+                    </div>
+                </div>
+                
+                <div class="member field">
+                    <div class="member-header">
+                        <div class="member-name">UpdatedText</div>
+                        <div class="member-type">Field</div>
+                    </div>
+                    <div class="summary">
+                        The processed or evaluated text that will be written to the canvas.
+                    </div>
+                </div>
+                
+                <h4>Constructors</h4>
+                
+                <div class="member constructor">
+                    <div class="member-header">
+                        <div class="member-name">AppWrite()</div>
+                        <div class="member-type">Constructor</div>
+                    </div>
+                    <div class="summary">
+                        Initializes a new instance of the <code>AppWrite</code> class.
+                    </div>
+                </div>
+                
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">CheckParameters(String[])</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Validates and sets the parameter for the write command. Expects exactly one parameter representing the text to display.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">parameters</div>
+                            <div class="param-desc">An array containing a single text parameter.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Thrown if the number of parameters is not exactly one.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Execute()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Executes the write command, evaluating the text if it is an expression, and writes it to the canvas.
+                    </div>
+                    <div class="exception">
+                        Thrown if the text is null, empty, or if the canvas is not initialized.
+                    </div>
+                </div>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">SetCanvas(Object)</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Sets the canvas for this command. Currently not implemented.
+                    </div>
+                    <div class="parameters">
+                        <div class="parameter">
+                            <div class="param-name">value</div>
+                            <div class="param-desc">The canvas object.</div>
+                        </div>
+                    </div>
+                    <div class="exception">
+                        Always thrown (NotImplementedException).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Program -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">Program</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Provides the entry point and startup configuration for the Boose application.
+            </div>
+            
+            <div class="members">
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Main()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        The main entry point for the Boose application. Initializes application settings, configures global exception handling, and starts the main user interface form.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ApplicationConfiguration -->
+        <div class="type">
+            <div class="type-header">
+                <div class="type-name">ApplicationConfiguration</div>
+                <div class="type-kind">Class</div>
+            </div>
+            <div class="summary">
+                Bootstrap the application configuration.
+            </div>
+            
+            <div class="members">
+                <h4>Methods</h4>
+                
+                <div class="member method">
+                    <div class="member-header">
+                        <div class="member-name">Initialize()</div>
+                        <div class="member-type">Method</div>
+                    </div>
+                    <div class="summary">
+                        Bootstrap the application as follows:
+                        <code>
+                        global::System.Windows.Forms.Application.EnableVisualStyles();
+                        global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+                        global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>BooseApp_Level6Sem1 Documentation | Generated from XML documentation file</p>
+        <p>Complete documentation for all classes in the BOOSE Drawing Application - Level 6 Semester 1</p>
+        <p>Total Classes Documented: 21</p>
+    </footer>
+</body>
+</html>
